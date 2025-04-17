@@ -99,15 +99,14 @@ const gameOver = id => {
 
     untypedfield.textContent = 'タイムアップ！';
 
-    // 10ms後にゲーム判定結果のダイアログを表示
+// 10ms後にゲーム判定結果のダイアログを表示
     setTimeout(() => {
         const result = confirm(rankCheck(score));
+        // OKボタンをクリックされたらリロードする
+        if (result == true) {
+            window.location.reload();
+        }
     }, 10);
-
-    // OKボタンをクリックされたらリロードする
-    if (result == true) {
-        window.location.reload();
-    }
 };
 
 // カウントダウンタイマー
